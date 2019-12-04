@@ -1,0 +1,89 @@
+body {
+    background-color: #fc7a4f;
+  }
+  
+  .charMain {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 3.5rem;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: 30px;
+  }
+  
+  .picDiv {
+      width: 75%;
+      background-color: red;
+      box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
+      border: 5px solid #ffd633;
+  }
+  
+  .charDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+  }
+  
+  .scene {
+    width: 225px;
+    height: 300px;
+    margin: 40px 0;
+    perspective: 600px;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    
+  }
+  
+  .card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: bold;
+    backface-visibility: hidden;
+  }
+  
+  .card__face--front {
+    background-image: url(/image/poke_2.jpg);
+    border-radius: 10px;
+    color: #ffd633;
+    border: 5px solid #20048c;
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
+  }
+  
+  .card__face--front h3 {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  
+  .card__face--back {
+    background: green;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    text-align: center;
+    border: 5px solid #ffd633;
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
+  }
+  
+  .backDiv {
+    color: black;
+    margin: 10px;
+    text-align: left;
+  }
+  
+  h3 {
+    margin: 5px;
+    text-align: left;
+  }
