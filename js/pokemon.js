@@ -66,7 +66,7 @@ async function getAPIData(url) {
         pic.setAttribute('class','picDiv')
         let pokeNum = getPokeNumber(data.id)
         name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
-        pic.src = `../image/pokemon.json/images/${pokeNum}.png`
+        pic.src = `pokemon.json/images/${pokeNum}.png`
         pokeHeight.textContent = data.height
         pokeHP.textContent = data.stats[0].base_stat
         pokeBack.appendChild(name)
