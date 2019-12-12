@@ -1,4 +1,18 @@
 
+class Pokemon {
+    constructor(id, name) {
+        this.id = id
+        this.name = name
+    }
+}
+
+const Thoremon = new Pokemon(80, 'Thoremon')
+
+const newButton = document.querySelector('#newPokemon')
+newButton.addEventListener('click', function() {
+    populateDOM(Thoremon)
+})
+
 //imortant async function//
 async function getAPIData(url) {
     try {
@@ -14,8 +28,7 @@ async function getAPIData(url) {
     const theData = getAPIData('https://pokeapi.co/api/v2/pokemon')
     .then(data => {
         for (const pokemon of data.results) {
-            getAPIData(pokemon.url)
-            .then(pokedata => {
+            getAPIData(pokemon.url).then(pokedata => {
                 populateDOM(pokedata)
             })
         }
@@ -51,7 +64,7 @@ async function getAPIData(url) {
     function fillCardFront(pokeFront, data) {
         pokeFront.setAttribute('class', 'card__face card__face--front')
         let pokeOrder = document.createElement('h3')
-        pokeOrder.textContent = data.order
+        pokeOrder.textContent = data.id
         pokeFront.appendChild(pokeOrder)
     }
     
@@ -59,7 +72,6 @@ async function getAPIData(url) {
         pokeBack.setAttribute('class', 'card__face card__face--back')
         let backDiv = document.createElement('div')
         backDiv.setAttribute('class', 'backDiv')
-        let pokeHP = document.createElement('p')
         let pokeHeight = document.createElement('p')
         let name = document.createElement('h3')
         let pic = document.createElement('img')
@@ -68,9 +80,7 @@ async function getAPIData(url) {
         name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
         pic.src = `pokemon.json/images/${pokeNum}.png`
         pokeHeight.textContent = data.height
-        pokeHP.textContent = data.stats[0].base_stat
         pokeBack.appendChild(name)
-        backDiv.appendChild(pokeHP)
         backDiv.appendChild(pokeHeight)
         pokeBack.appendChild(pic)
         pokeBack.appendChild(backDiv)
