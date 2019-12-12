@@ -6,11 +6,20 @@ class Pokemon {
     }
 }
 
-const Thoremon = new Pokemon(80, 'Thoremon')
+const Thoremon = new Pokemon ()
 
 const newButton = document.querySelector('#newPokemon')
+
 newButton.addEventListener('click', function() {
-    populateDOM(Thoremon)
+    let pokeID = prompt('Enter Pokemon ID between 0 and 807')
+    if (pokeID > 0 && pokeID <= 807) {
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeID}`)
+        .then(result => {
+            populateDOM(result)
+        })
+    } else{
+        alert('There is no Pokemon with that ID, please try again.')
+    }
 })
 
 //imortant async function//
@@ -25,7 +34,7 @@ async function getAPIData(url) {
     }
     
     //now use returned async data
-    const theData = getAPIData('https://pokeapi.co/api/v2/pokemon')
+    const theData = getAPIData('https://pokeapi.co/api/v2/pokemon?limit=27')
     .then(data => {
         for (const pokemon of data.results) {
             getAPIData(pokemon.url).then(pokedata => {
@@ -79,8 +88,12 @@ async function getAPIData(url) {
         let pokeNum = getPokeNumber(data.id)
         name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
         pic.src = `pokemon.json/images/${pokeNum}.png`
-        pokeHeight.textContent = data.height
+        pokeHeight.textContent = `Height: ${data.height}`
+        let pokeType = document. createElement('p')
+        pokeType.textContent = `${data.types[0].type.name[0].toUpperCase()}${data.types[0].type.name.slice(1)} Type`
+        console.log(data.type)
         pokeBack.appendChild(name)
+        backDiv.appendChild(pokeType)
         backDiv.appendChild(pokeHeight)
         pokeBack.appendChild(pic)
         pokeBack.appendChild(backDiv)

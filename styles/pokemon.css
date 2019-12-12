@@ -3,32 +3,71 @@
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Comfortaa', cursive;
+  src: url(https://fonts.googleapis.com/css?family=Comfortaa&display=swap);
+  font-family: 'Poppins', sans-serif;
+  src: url(https://fonts.googleapis.com/css?family=Poppins&display=swap);
+  font-family: 'Bungee Shade', cursive;
+  src: url(https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap);
+  font-family: 'Montserrat', sans-serif;
+  src: url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);
+  font-family: 'Barlow', sans-serif;
+  src: url(https://fonts.googleapis.com/css?family=Barlow&display=swap);
+  font-family: 'Pacifico', cursive;
+  src: url(https://fonts.googleapis.com/css?family=Pacifico&display=swap);
+}
+
 body {
-    background-color: #fc7a4f;
+    background-image: url('http://gomap-asset.com/wp-content/uploads/2017/11/Schermata-2017-11-27-alle-15.36.53-1024x546.png'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #1F4E7D;
+    font-family: 'Montserrat', sans-serif;
   }
   
 #cover {
-  background-color: white;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  height: 250px;
   width: 100%;
-  box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.6);
 
 }
 
+h1{
+  display: flex;
+  justify-content: center;
+}
+
+#cover img  {
+  margin-top: 0px;
+  height: 300px;
+}
+
   .charMain {
+      background-color: white;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-gap: 3.5rem;
-      width: 100%;
-      max-width: 1200px;
-      margin-left: 30px;
+      grid-gap: 3rem;
+      width: 90%;
+      max-width: 900px;
+      margin-left: 15%;
+      margin-top: 50px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
+  .card:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
   .picDiv {
       width: 75%;
-      background-color: red;
-      box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
-      border: 5px solid #ffd633;
+      background-image: url('https://cdn.pixabay.com/photo/2014/08/13/21/57/fly-agaric-417647__480.jpg');
+      border: 2px solid grey;
   }
   
   .charDiv {
@@ -46,6 +85,7 @@ body {
   }
   
   .card {
+    margin: 15px;
     width: 100%;
     height: 100%;
     transition: transform 1s;
@@ -63,7 +103,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    color: white;
+    color: black;
     font-weight: bold;
     backface-visibility: hidden;
   }
@@ -71,7 +111,7 @@ body {
   .card__face--front {
     background-image: url(/image/poke_2.jpg);
     border-radius: 10px;
-    color: #ffd633;
+    color: #FAE419;
     border: 5px solid #20048c;
     box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
   }
@@ -82,12 +122,12 @@ body {
   }
   
   .card__face--back {
-    background: green;
+    background-image: url(/image/blue\ \(2\).jpeg);
     transform: rotateY(180deg);
     border-radius: 10px;
     text-align: center;
-    border: 5px solid #ffd633;
-    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.9);
+    border: 5px solid #FAE419;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   }
   
   .backDiv {
@@ -100,3 +140,35 @@ body {
     margin: 5px;
     text-align: left;
   }
+
+  #buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .singleButton {
+    font-family: 'Montserrat', sans-serif;;
+    font-size: 25px;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    margin: 30px;
+  }
+
+  button:hover {
+    background-color: #51d6b3;
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+}
